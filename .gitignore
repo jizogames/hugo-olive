@@ -27,6 +27,21 @@ go.work.sum
 # env file
 .env
 
+# Security
+*.pem
+*.key
+id_rsa
+
+# OS
+.DS_Store
+Thumbs.db
+
 # Editor/IDE
-# .idea/
-# .vscode/
+*~
+.idea/
+.vscode/
+
+# Hugo
+.hugo_build.lock
+resources/
+public/
