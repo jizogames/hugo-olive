@@ -1,16 +1,25 @@
 <!DOCTYPE html>
-<html lang="{{ site.Language.Locale }}" dir="{{ or site.Language.Direction `ltr` }}">
+<html lang="{{ site.Language.Locale }}" dir="{{ or site.Language.Direction `ltr` }}" class="no-js">
 <head>
   {{ partial "head.html" . }}
+  <script>
+    document.documentElement.classList.replace("no-js", "js");
+  </script>
 </head>
 <body>
-  <header>
+  <noscript>
+    <p>JavaScriptが無効になっています。一部機能が利用できません。</p>
+  </noscript>
+  <nav class="skip-link" aria-label="スキップリンク">
+    <a href="#main">メインコンテンツへスキップ</a>
+  </nav>
+  <header id="js-global-header" aria-label="サイトヘッダー">
     {{ partial "header.html" . }}
   </header>
-  <main>
+  <main id="main" role="main">
     {{ block "main" . }}{{ end }}
   </main>
-  <footer>
+  <footer aria-label="サイトフッター">
     {{ partial "footer.html" . }}
   </footer>
 </body>
