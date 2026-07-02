@@ -1,0 +1,5 @@
+# baseURL = 'https://your_domain.com/'
+# title = 'your site name'
+# theme = 'hugo-olive'
+locale = 'ja-JP'
+defaultContentLanguage = 'ja'

@@ -1,0 +1,16 @@
+[goldmark]
+  [goldmark.parser]
+    autoHeadingID = false
+    wrapStandAloneImageWithinParagraph = false
+
+    [goldmark.parser.attribute]
+      block = true
+
+  [goldmark.renderer]
+    hardWraps = true
+    unsafe = true
+
+[tableOfContents]
+  startLevel = 2
+  endLevel = 4
+  ordered = true
