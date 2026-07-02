@@ -1,0 +1,12 @@
+name = 'Olive'
+license = 'MIT'
+licenselink = 'https://github.com/jizogames/hugo-olive/blob/main/LICENSE'
+description = 'Jizo Games Original Hugo Theme'
+homepage = 'https://github.com/jizogames/hugo-olive/'
+demosite = ''
+tags = ['blog', 'portfolio']
+features = ['blog']
+
+[author]
+  name = 'Jizo Games'
+  homepage = 'https://jizogames.com/'
