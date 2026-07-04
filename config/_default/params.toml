@@ -4,3 +4,6 @@ metaDescriptionOrder = ["description", "site"]
 robots = ["max-image-preview:large"]
 keywords = []
 
+[social]
+  twitter = ""
+  facebook_app_id = ""

@@ -18,6 +18,9 @@
 <meta name="description" content="{{ . | plainify }}">
 {{ end }}
 
+{{ partial "opengraph.html" . }}
+{{ partial "twitter_cards.html" . }}
+
 {{ with .Keywords | default .Params.tags | default site.Params.keywords }}
 <meta name="keywords" content="{{ delimit . "," }}">
 {{ end }}
