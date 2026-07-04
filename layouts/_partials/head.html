@@ -21,6 +21,8 @@
 {{ partial "opengraph.html" . }}
 {{ partial "twitter_cards.html" . }}
 
+{{ partialCached "head/favicon.html" . }}
+
 {{ with .Keywords | default .Params.tags | default site.Params.keywords }}
 <meta name="keywords" content="{{ delimit . "," }}">
 {{ end }}
