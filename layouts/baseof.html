@@ -16,9 +16,14 @@
   <header id="js-global-header" aria-label="サイトヘッダー">
     {{ partial "header.html" . }}
   </header>
-  <main id="main" role="main">
-    {{ block "main" . }}{{ end }}
-  </main>
+  {{ block "beforeMain" . }}{{ end }}
+  <div class="wrapper">
+    <main id="main" role="main">
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ block "aside" . }}{{ end }}
+  </div>
+  {{ block "afterMain" . }}{{ end }}
   <footer aria-label="サイトフッター">
     {{ partial "footer.html" . }}
   </footer>
