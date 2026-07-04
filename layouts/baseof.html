@@ -1,16 +1,30 @@
 <!DOCTYPE html>
-<html lang="{{ site.Language.Locale }}" dir="{{ or site.Language.Direction `ltr` }}">
-<head>
+<html lang="{{ site.Language.Locale }}" dir="{{ or site.Language.Direction `ltr` }}" class="no-js">
+<head prefix="og: https://ogp.me/ns#">
   {{ partial "head.html" . }}
+  <script>
+    document.documentElement.classList.replace("no-js", "js");
+  </script>
 </head>
 <body>
-  <header>
+  <noscript>
+    <p>JavaScriptが無効になっています。一部機能が利用できません。</p>
+  </noscript>
+  <nav class="skip-link" aria-label="スキップリンク">
+    <a href="#main">メインコンテンツへスキップ</a>
+  </nav>
+  <header id="js-global-header" aria-label="サイトヘッダー">
     {{ partial "header.html" . }}
   </header>
-  <main>
-    {{ block "main" . }}{{ end }}
-  </main>
-  <footer>
+  {{ block "beforeMain" . }}{{ end }}
+  <div class="wrapper">
+    <main id="main" role="main">
+      {{ block "main" . }}{{ end }}
+    </main>
+    {{ block "aside" . }}{{ end }}
+  </div>
+  {{ block "afterMain" . }}{{ end }}
+  <footer aria-label="サイトフッター">
     {{ partial "footer.html" . }}
   </footer>
 </body>

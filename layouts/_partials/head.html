@@ -1,5 +1,34 @@
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
+
+{{ $metaDescriptionOrder := site.Params.metaDescriptionOrder | default (slice "description" "site") }}
+{{ $metaDescriptionSources := dict
+  "description" .Description
+  "site" site.Params.description
+}}
+{{ $metaDescription := "" }}
+{{ range $metaDescriptionOrder }}
+  {{ $metaDescription = $metaDescription | default (index $metaDescriptionSources (lower .)) }}
+{{ end }}
+
+{{ with $metaDescription }}
+<meta name="description" content="{{ . | plainify }}">
+{{ end }}
+
+{{ partial "opengraph.html" . }}
+{{ partial "twitter_cards.html" . }}
+
+{{ partialCached "head/favicon.html" . }}
+
+{{ with .Keywords | default .Params.tags | default site.Params.keywords }}
+<meta name="keywords" content="{{ delimit . "," }}">
+{{ end }}
+
+{{ with site.Params.robots }}
+<meta name="robots" content="{{ delimit . "," }}">
+{{ end }}
+
+{{ hugo.Generator }}
