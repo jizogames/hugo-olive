@@ -9,6 +9,9 @@ keywords = []
   disableTextInHeader = false
   maxLogoSize = 80.0
 
+[footer]
+  showMenu = true
+
 [social]
   twitter = ""
   facebook_app_id = ""
