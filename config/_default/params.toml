@@ -12,6 +12,10 @@ keywords = []
 [footer]
   showMenu = true
 
+[breadcrumb]
+  showBreadcrumb = true
+  showCurrentPage = true
+
 [social]
   twitter = ""
   facebook_app_id = ""

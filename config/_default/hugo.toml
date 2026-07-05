@@ -3,3 +3,7 @@
 # theme = 'hugo-olive'
 locale = 'ja-JP'
 defaultContentLanguage = 'ja'
+
+[taxonomies]
+  category = 'categories'
+  tag = 'tags'
