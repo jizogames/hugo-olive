@@ -1,2 +1,62 @@
-<h1>{{ site.Title }}</h1>
-{{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+{{- $logo := "" -}}
+{{- with site.Params.header.logo -}}
+  {{- $logo = resources.Get . -}}
+{{- end -}}
+
+{{- $showText := site.Params.header.disableTextInHeader | default false | not -}}
+
+<div>
+  {{- if or $logo $showText -}}
+    <div>
+      {{- with $logo -}}
+        {{- $max := site.Params.header.maxLogoSize | default 80.0 -}}
+        {{- $targetW := div (float .Width) 2.0 -}}
+        {{- $targetH := div (float .Height) 2.0 -}}
+        {{- $scaleW := div $max $targetW -}}
+        {{- $scaleH := div $max $targetH -}}
+        {{- $scale := math.Min 1.0 (math.Min $scaleW $scaleH) -}}
+
+        {{- $displayW := int (math.Round (mul $targetW $scale)) -}}
+        {{- $displayH := int (math.Round (mul $targetH $scale)) -}}
+
+        {{- if $showText -}}
+          <img
+            src="{{ .RelPermalink }}"
+            width="{{ $displayW }}"
+            height="{{ $displayH }}"
+            alt=""
+          >
+        {{- else -}}
+          <a href="{{ site.Home.RelPermalink }}">
+            <img
+              src="{{ .RelPermalink }}"
+              width="{{ $displayW }}"
+              height="{{ $displayH }}"
+              alt="{{ site.Title }} ホーム"
+            >
+          </a>
+        {{- end -}}
+      {{- end -}}
+
+      {{- if $showText -}}
+        <p><a href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a></p>
+      {{- end -}}
+    </div>
+  {{- end -}}
+  
+  <button id="js-openMenu" type="button">
+    <span>メニューをひらく</span>
+  </button>
+
+  <div>
+    {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+  </div>
+</div>
+<dialog id="js-drawerMenu" aria-label="メインメニュー" closedby="any">
+  <button id="js-closeMenu" type="button" autofocus>
+    <span>メニューをとじる</span>
+  </button>
+  <div>
+    {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+  </div>
+</dialog>

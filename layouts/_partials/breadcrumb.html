@@ -1,0 +1,55 @@
+{{- $breadcrumb := site.Params.breadcrumb | default dict -}}
+{{- $showBreadcrumb := $breadcrumb.showBreadcrumb | default true -}}
+{{- $showCurrentPage := $breadcrumb.showCurrentPage | default true -}}
+
+{{- with .Params.breadcrumb -}}
+  {{- $showBreadcrumb = .showBreadcrumb | default $showBreadcrumb -}}
+  {{- $showCurrentPage = .showCurrentPage | default $showCurrentPage -}}
+{{- end -}}
+
+{{- if $showBreadcrumb -}}
+  <nav aria-label="現在のページ階層">
+    <ol itemscope itemtype="https://schema.org/BreadcrumbList">
+      {{- $position := 1 -}}
+
+      <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+        <a href="{{ site.Home.RelPermalink }}" itemprop="item">
+          <span itemprop="name">ホーム</span>
+        </a>
+        <meta itemprop="position" content="{{ $position }}">
+      </li>
+
+      {{- range .Ancestors.Reverse -}}
+        {{- if not .IsHome -}}
+          {{- $position = add $position 1 -}}
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="{{ .RelPermalink }}" itemprop="item">
+              <span itemprop="name">{{ .LinkTitle }}</span>
+            </a>
+            <meta itemprop="position" content="{{ $position }}">
+          </li>
+        {{- end -}}
+      {{- end -}}
+
+      {{- with .GetTerms "categories" -}}
+        {{- with index . 0 -}}
+          {{- $position = add $position 1 -}}
+          <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+            <a href="{{ .RelPermalink }}" itemprop="item">
+              <span itemprop="name">{{ .LinkTitle }}</span>
+            </a>
+            <meta itemprop="position" content="{{ $position }}">
+          </li>
+        {{- end -}}
+      {{- end -}}
+
+      {{- if $showCurrentPage -}}
+        {{- $position = add $position 1 -}}
+        <li itemprop="itemListElement" itemscope itemtype="https://schema.org/ListItem">
+          <span itemprop="name" aria-current="page">{{ .Title }}</span>
+          <meta itemprop="position" content="{{ $position }}">
+        </li>
+      {{- end -}}
+    </ol>
+  </nav>
+{{- end -}}

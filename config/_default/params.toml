@@ -4,6 +4,18 @@ metaDescriptionOrder = ["description", "site"]
 robots = ["max-image-preview:large"]
 keywords = []
 
+[header]
+  logo = ""
+  disableTextInHeader = false
+  maxLogoSize = 80.0
+
+[footer]
+  showMenu = true
+
+[breadcrumb]
+  showBreadcrumb = true
+  showCurrentPage = true
+
 [social]
   twitter = ""
   facebook_app_id = ""
