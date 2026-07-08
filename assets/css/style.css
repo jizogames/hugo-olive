@@ -3,3 +3,6 @@
 @import url("tokens/property.css") layer(tokens);
 @import url("tokens/color.css") layer(tokens);
 @import url("tokens/structure.css") layer(tokens);
+
+@import url("theme/color.css") layer(theme);
+@import url("theme/structure.css") layer(theme);
