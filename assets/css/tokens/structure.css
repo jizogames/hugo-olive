@@ -1,0 +1,8 @@
+:root {
+  --viewport-min: 375;
+  --viewport-max: 1280;
+  --content-max: 900;
+
+  --stack-foreground: 1;
+  --stack-background: -1;
+}
