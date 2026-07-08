@@ -6,3 +6,6 @@
 
 @import url("theme/color.css") layer(theme);
 @import url("theme/structure.css") layer(theme);
+
+@import url("https://cdn.jsdelivr.net/npm/kiso.css@latest/kiso.css") layer(foundation);
+@import url("foundation/base.css") layer(foundation);
