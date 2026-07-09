@@ -1,0 +1,12 @@
+.l-footer {
+  container-name: footer;
+  container-type: inline-size;
+  inline-size: 100%;
+  inset-block-start: 100%;
+  position: sticky;
+}
+
+.l-footer__container {
+  margin-inline: auto;
+  max-inline-size: 1024px;
+}

@@ -13,18 +13,20 @@
   <nav class="skip-link" aria-label="スキップリンク">
     <a href="#main">メインコンテンツへスキップ</a>
   </nav>
-  <header id="js-global-header" aria-label="サイトヘッダー">
+  <header id="js-global-header" class="l-header" aria-label="サイトヘッダー">
     {{ partial "header.html" . }}
   </header>
-  {{ block "beforeMain" . }}{{ end }}
-  <div class="wrapper">
-    <main id="main" role="main">
-      {{ block "main" . }}{{ end }}
-    </main>
-    {{ block "aside" . }}{{ end }}
+  <div class="l-wrapper">
+    {{ block "beforeMain" . }}{{ end }}
+    <div class="l-container">
+      <main id="main" class="l-main" role="main">
+        {{ block "main" . }}{{ end }}
+      </main>
+      {{ block "aside" . }}{{ end }}
+    </div>
+    {{ block "afterMain" . }}{{ end }}
   </div>
-  {{ block "afterMain" . }}{{ end }}
-  <footer aria-label="サイトフッター">
+  <footer class="l-footer" aria-label="サイトフッター">
     {{ partial "footer.html" . }}
   </footer>
 </body>

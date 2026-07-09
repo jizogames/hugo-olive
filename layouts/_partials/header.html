@@ -5,7 +5,7 @@
 
 {{- $showText := site.Params.header.disableTextInHeader | default false | not -}}
 
-<div>
+<div class="l-header__container">
   {{- if or $logo $showText -}}
     <div>
       {{- with $logo -}}

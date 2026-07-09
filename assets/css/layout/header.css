@@ -1,0 +1,13 @@
+.l-header {
+  container-name: header;
+  container-type: inline-size;
+}
+
+.l-header__container {
+  align-items: center;
+  column-gap: 1rem;
+  display: grid;
+  grid-template-columns: auto minmax(max-content, 1fr);
+  margin-inline: auto;
+  max-inline-size: 1024px;
+}

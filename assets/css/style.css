@@ -9,3 +9,6 @@
 
 @import url("https://cdn.jsdelivr.net/npm/kiso.css@latest/kiso.css") layer(foundation);
 @import url("foundation/base.css") layer(foundation);
+
+@import url("layout/header.css") layer(layout);
+@import url("layout/footer.css") layer(layout);
