@@ -1,0 +1,14 @@
+@layer tokens, theme, foundation, layout, component, project, animation, utility, custom;
+
+@import url("tokens/property.css") layer(tokens);
+@import url("tokens/color.css") layer(tokens);
+@import url("tokens/structure.css") layer(tokens);
+
+@import url("theme/color.css") layer(theme);
+@import url("theme/structure.css") layer(theme);
+
+@import url("https://cdn.jsdelivr.net/npm/kiso.css@latest/kiso.css") layer(foundation);
+@import url("foundation/base.css") layer(foundation);
+
+@import url("layout/header.css") layer(layout);
+@import url("layout/footer.css") layer(layout);

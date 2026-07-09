@@ -1,0 +1,6 @@
+:root {
+  --content-inline-size: var(--content-max);
+
+  --header-height: 0px;
+  --scroll-margin: var(--header-height);
+}

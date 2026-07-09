@@ -1,0 +1,17 @@
+@property --viewport-min {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 375;
+}
+
+@property --viewport-max {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 1280;
+}
+
+@property --content-max {
+  syntax: "<number>";
+  inherits: true;
+  initial-value: 900;
+}
