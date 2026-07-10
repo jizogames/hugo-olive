@@ -1,17 +1,28 @@
 :root {
-  --color-main: light-dark(var(--olive-600), var(--olive-400));
-  --color-bg: light-dark(var(--gray-50), var(--gray-900));
-  --color-bg-secondary: light-dark(var(--gray-100), var(--gray--800));
-  --color-text: light-dark(var(--gray-900), var(--gray-50));
+  /* Theme */
+  --theme-bg: var(--olive);
+  --theme-fg: var(--gray-950);
+
+  /* Background */
+  --color-base-bg: light-dark(var(--gray-50), var(--olive-950));
+  
+  /* Text */
+  --color-text: light-dark(var(--gray-950), var(--gray-50));
   --color-text-light: light-dark(var(--gray-600), var(--gray-400));
-  --color-shadow: light-dark(oklch(from var(--black) l c h / 10%), oklch(from var(--white) l c h / 10%));
-  --color-error: light-dark(var(--error-light), var(--error-dark));
-  --color-link: light-dark(oklch(53.52% 0.168 262.29), oklch(72.22% 0.105 267.39));
-  --color-link-hover: light-dark(oklch(47.18% 0.140 263.47), oklch(79.7% 0.086 268.99));
-  --color-link-active: light-dark(oklch(34.16% 0.089 266.57), oklch(86.1% 0.063 255.1));
-  --color-link-visited: light-dark(oklch(53.56% 0.122 287.24), oklch(71.35% 0.076 296.78));
-  --color-link-visited-hover: light-dark(oklch(47.52% 0.131 282.31), oklch(80.73% 0.052 300.46));
-  --color-link-visited-active: light-dark(oklch(34.57% 0.082 284.07), oklch(87.24% 0.035 302.02));
+
+  /* Shadow */
+  --color-shadow: light-dark(oklch(from var(--gray-950) l c h / 10%), oklch(from var(--gray-50) l c h / 10%));
+
+  /* Error */
+  --color-error: light-dark(var(--red-700), var(--red-500));
+
+  /* Link */
+  --color-link: light-dark(var(--blue-600), var(--blue-400)));
+  --color-link-hover: light-dark(var(--blue-500), var(--blue-500)));
+  --color-link-active: light-dark(var(--blue-400), var(--blue-600));
+  --color-link-visited: light-dark(var(--purple-700), var(--purple-400));
+  --color-link-visited-hover: light-dark(var(--purple-800), var(--purple-300));
+  --color-link-visited-active: light-dark(var(--purple-900), var(--purple-200);
 
   color-scheme: light dark;
 }

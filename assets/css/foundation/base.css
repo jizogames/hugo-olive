@@ -22,7 +22,7 @@
 }
 
 :where(body) {
-  background-color: var(--color-bg);
+  background-color: var(--color-base-bg);
   color: var(--color-text);
   font-family: "Helvetica Neue", Arial, "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Noto Sans JP", sans-serif;
   line-height: 1.5;
@@ -77,7 +77,7 @@
 }
 
 :where(:focus-visible) {
-  outline-color: var(--color-main);
+  outline-offset: 4px;
 }
 
 :where([id]),
