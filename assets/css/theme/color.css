@@ -22,7 +22,7 @@
   --color-link-active: light-dark(var(--blue-400), var(--blue-600));
   --color-link-visited: light-dark(var(--purple-700), var(--purple-400));
   --color-link-visited-hover: light-dark(var(--purple-800), var(--purple-300));
-  --color-link-visited-active: light-dark(var(--purple-900), var(--purple-200);
+  --color-link-visited-active: light-dark(var(--purple-900), var(--purple-200));
 
   color-scheme: light dark;
 }
