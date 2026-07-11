@@ -1,0 +1,24 @@
+.p-skip-link {
+  inset-block-start: 0;
+  justify-self: center;
+  position: absolute;
+  z-index: calc(infinity);
+
+  &:not(:focus-within) {
+    block-size: 1px;
+    inline-size: 1px;
+    opacity: 0;
+    overflow: clip;
+    pointer-events: none;
+  }
+}
+
+.p-skip-link a {
+  background-color: var(--theme-bg);
+  border-radius: 0 0 0.25em 0.25em;
+  color: var(--theme-fg);
+  display: block;
+  padding-block: 0.25rem;
+  padding-inline: 0.5rem;
+  text-decoration: none;
+}
