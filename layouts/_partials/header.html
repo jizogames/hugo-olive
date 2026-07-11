@@ -43,13 +43,13 @@
       {{- end -}}
     </div>
   {{- end -}}
-  
-  <button id="js-openMenu" type="button">
-    <span>メニューをひらく</span>
-  </button>
 
-  <div>
+  <div class="l-header__inner">
     {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+
+    <button id="js-openMenu" type="button">
+      <span>メニューをひらく</span>
+    </button>
   </div>
 </div>
 <dialog id="js-drawerMenu" aria-label="メインメニュー" closedby="any">

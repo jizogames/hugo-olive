@@ -11,3 +11,9 @@
   margin-inline: auto;
   max-inline-size: 1024px;
 }
+
+.l-header__inner {
+  container-type: inline-size;
+  display: grid;
+  justify-content: end;
+}
