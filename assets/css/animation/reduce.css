@@ -1,0 +1,15 @@
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after.
+  *::backdrop {
+    animation-delay: unset !important;
+    animation-duration: 1ms !important;
+    animation-iteration-count: unset !important;
+    background-attachment: unset !important;
+    scroll-behavior: unset !important;
+    transition-delay: unset !important;
+    transition-duration: 1ms !important;
+    view-transition-name: none !important;
+  }
+}
