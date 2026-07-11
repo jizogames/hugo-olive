@@ -1,0 +1,28 @@
+.p-logo {
+  align-items: center;
+  display: grid;
+  grid-auto-flow: column;
+  inline-size: fit-content;
+  justify-content: start;
+  position: relative;
+}
+
+.p-logo__image {
+  max-inline-size: none;
+}
+
+.p-logo__text {
+  font-size: 1.5rem;
+  padding-inline: 0.5rem;
+  white-space: nowrap;
+
+  a {
+    color: inherit;
+  }
+
+  a::after {
+    content: "";
+    inset: 0;
+    position: absolute;
+  }
+}

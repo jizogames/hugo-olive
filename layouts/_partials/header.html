@@ -7,7 +7,7 @@
 
 <div class="l-header__container">
   {{- if or $logo $showText -}}
-    <div>
+    <div class="p-logo">
       {{- with $logo -}}
         {{- $max := site.Params.header.maxLogoSize | default 80.0 -}}
         {{- $targetW := div (float .Width) 2.0 -}}
@@ -24,6 +24,7 @@
             src="{{ .RelPermalink }}"
             width="{{ $displayW }}"
             height="{{ $displayH }}"
+            class="p-logo__image"
             alt=""
           >
         {{- else -}}
@@ -32,6 +33,7 @@
               src="{{ .RelPermalink }}"
               width="{{ $displayW }}"
               height="{{ $displayH }}"
+              class="p-logo__image"
               alt="{{ site.Title }} ホーム"
             >
           </a>
@@ -39,7 +41,7 @@
       {{- end -}}
 
       {{- if $showText -}}
-        <p><a href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a></p>
+        <p class="p-logo__text"><a href="{{ site.Home.RelPermalink }}">{{ site.Title }}</a></p>
       {{- end -}}
     </div>
   {{- end -}}

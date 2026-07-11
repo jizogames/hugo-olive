@@ -13,4 +13,5 @@
 @import url("layout/header.css") layer(layout);
 @import url("layout/footer.css") layer(layout);
 
+@import url("project/logo.css") layer(project);
 @import url("project/skip-link.css") layer(project);
