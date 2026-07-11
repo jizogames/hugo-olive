@@ -19,3 +19,5 @@
 @import url("animation/fade.css") layer(animation);
 @import url("animation/slide.css") layer(animation);
 @import url("animation/reduce.css") layer(animation);
+
+@import url("utility/hidden.css") layer(utility);

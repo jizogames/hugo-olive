@@ -1,0 +1,26 @@
+.u-hidden-sp {
+  @media (width < 1024px) {
+    display: none !important;
+  }
+}
+
+.u-hidden-pc {
+  @media (width >= 1024px) {
+    display: none !important;
+  }
+}
+
+.u-visually-hidden {
+  block-size: 1px !important;
+  border: 0 !important;
+  clip-path: inset(50%) !important;
+  inline-size: 1px !important;
+  margin: 0 !important;
+  opacity: 0 !important;
+  overflow: hidden !important;
+  padding: 0 !important;
+  pointer-events: none !important;
+  position: absolute !important;
+  visibility: visible !important;
+  white-space: nowrap !important;
+}
