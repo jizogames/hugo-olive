@@ -1,6 +1,15 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
+<script>
+  try {
+    const theme = sessionStorage.getItem("theme");
+
+    if (theme === "light" | theme === "dark") {
+      document.documentElement.dataset.theme = theme;
+    }
+  } catch {}
+</script>
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
 

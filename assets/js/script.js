@@ -14,6 +14,8 @@ document.addEventListener("DOMContentLoaded", () => {
     openMenu.addEventListener("click", () => menu.showModal());
     closeMenu.addEventListener("click", () => menu.close());
   }
+
+  switchTheme();
 });
 
 /* 特定の要素の高さを取得し、カスタムプロパティに登録する */
@@ -32,4 +34,23 @@ function getElementHeight(targetElement, propertyName) {
   });
 
   heightObserver.observe(targetElement);
+}
+
+/* ダークモード・ライトモードを切り替える */
+function switchTheme() {
+  const toggleButton = document.getElementById("js-toggleTheme");
+
+  if (toggleButton) {
+    toggleButton.addEventListener("click", () => {
+      const currentTheme = document.documentElement.getAttribute("data-theme");
+      const themeToApply = currentTheme === "dark" ? "light" : "dark";
+
+      sessionStorage.setItem("theme", themeToApply);
+      if ( themeToApply === "dark" ) {
+        document.documentElement.dataset.theme = "dark";
+      } else {
+        document.documentElement.dataset.theme = "light";
+      }
+    });
+  }
 }
