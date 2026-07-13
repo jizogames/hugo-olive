@@ -1,0 +1,30 @@
+.p-breadcrumb {
+  font-size: 0.875rem;
+  letter-spacing: 0.125em;
+  text-transform: uppercase;
+}
+
+.p-breadcrumb__list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  white-space: nowrap;
+}
+
+.p-breadcrumb__item {
+  align-items: center;
+  display: grid;
+}
+
+.p-breadcrumb__item:not(:first-child) {
+  gap: 0.5rem;
+  grid-template-columns: 1rem auto;
+
+  &::before {
+    background-color: currentColor;
+    block-size: 1px;
+    content: "";
+    display: block;
+    inline-size: 1rem;
+  }
+}
