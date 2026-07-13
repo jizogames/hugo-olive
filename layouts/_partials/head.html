@@ -3,12 +3,17 @@
 <title>{{ if .IsHome }}{{ site.Title }}{{ else }}{{ printf "%s | %s" .Title site.Title }}{{ end }}</title>
 <script>
   try {
-    const theme = sessionStorage.getItem("theme");
+    let theme = sessionStorage.getItem("theme");
 
-    if (theme === "light" | theme === "dark") {
-      document.documentElement.dataset.theme = theme;
+    if (theme !== "light" | theme !== "dark") {
+      theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      sessionStorage.setItem("theme", theme);
     }
-  } catch {}
+    document.documentElement.dataset.theme = theme;
+  } catch {
+    const theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+    document.documentElement.dataset.theme = theme;
+  }
 </script>
 {{ partialCached "head/css.html" . }}
 {{ partialCached "head/js.html" . }}
