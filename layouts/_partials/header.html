@@ -47,7 +47,7 @@
   {{- end -}}
 
   <div class="l-header__inner">
-    {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+    {{ partial "menu.html" (dict "menuID" "main" "page" . "layout" "horizontal") }}
 
     <button id="js-openMenu" type="button">
       <span>メニューをひらく</span>
@@ -59,6 +59,6 @@
     <span>メニューをとじる</span>
   </button>
   <div>
-    {{ partial "menu.html" (dict "menuID" "main" "page" .) }}
+    {{ partial "menu.html" (dict "menuID" "main" "page" . "layout" "vertical") }}
   </div>
 </dialog>

@@ -1,0 +1,35 @@
+.c-menu {
+  &:has([data-layout="vertical"]) {
+    padding-block: 0.5rem;
+  }
+}
+
+.c-menu__list {
+  display: flex;
+  rule: 1px solid;
+  rule-inset: 0.25em;
+}
+
+.c-menu__item {
+  display: grid;
+  white-space: nowrap;
+
+  a {
+    align-items: center;
+    color: inherit;
+    display: block;
+    padding-block: 0.25em;
+    padding-inline: 0.75em;
+    text-decoration: none;
+  }
+}
+
+.c-menu__list[data-layout="horizontal"] {
+  flex-direction: row;
+}
+
+.c-menu__list[data-layout="vertical"] {
+  flex-direction: column;
+  gap: 1rem;
+  text-align: center;
+}
