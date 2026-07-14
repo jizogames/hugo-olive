@@ -1,0 +1,41 @@
+.p-drawer {
+  align-content: start;
+  block-size: 100%;
+  inline-size: 100%;
+  margin-block: 0;
+  margin-inline: 0;
+  overflow: hidden;
+  padding-block: 2.5rem;
+  padding-inline: 4%;
+  transition-behavior: allow-discrete;
+  transition-duration: 0.6s;
+  transition-property: display, translate;
+  transition-timing-function: var(--ease-out-elastic);
+  translate: 0 -100%;
+  row-gap: 2.5rem;
+  z-index: calc(infinity);
+
+  &::backdrop {
+    opacity: 0;
+    transition-behavior: allow-discrete;
+    transition-duration: 0.6s;
+    transition-property: display, opacity;
+  }
+}
+
+.p-drawer[open] {
+  display: grid;
+  translate: 0;
+
+  @starting-style {
+    translate: 0 -100%;
+  }
+
+  &::backdrop {
+    opacity: 1;
+
+    @starting-style {
+      opacity: 0;
+    }
+  }
+}
