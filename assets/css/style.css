@@ -15,6 +15,7 @@
 
 @import url("component/menu.css") layer(component);
 
+@import url("project/breadcrumb.css") layer(project);
 @import url("project/logo.css") layer(project);
 @import url("project/skip-link.css") layer(project);
 
