@@ -4,7 +4,8 @@
   --theme-fg: var(--gray-950);
 
   /* Background */
-  --color-base-bg: light-dark(var(--gray-50), var(--olive-950));
+  --color-base-bg: light-dark(var(--gray-50), var(--gray-950));
+  --color-canvas-bg: light-dark(var(--olive-50), var(--olive-950));
   
   /* Text */
   --color-text: light-dark(var(--gray-950), var(--gray-50));
