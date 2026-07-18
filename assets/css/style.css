@@ -13,6 +13,8 @@
 @import url("layout/header.css") layer(layout);
 @import url("layout/footer.css") layer(layout);
 
+@import url("component/button.css") layer(component);
+@import url("component/icon.css") layer(component);
 @import url("component/menu.css") layer(component);
 
 @import url("project/breadcrumb.css") layer(project);

@@ -47,16 +47,18 @@
   {{- end -}}
 
   <div class="l-header__inner">
-    {{ partial "menu.html" (dict "menuID" "main" "page" . "layout" "horizontal") }}
+    {{ partial "menu.html" (dict "menuID" "main" "page" . "class" "u-hidden-sp" "layout" "horizontal") }}
 
-    <button id="js-openMenu" type="button">
-      <span>メニューをひらく</span>
+    <button id="js-openMenu" class="c-button u-hidden-pc" type="button">
+      <span class="c-icon" aria-hidden="true" data-icon="hamburger"></span>
+      <span class="c-icon__label">メニュー<span class="u-visually-hidden">をひらく</span></span>
     </button>
   </div>
 </div>
 <dialog id="js-drawerMenu" class="p-drawer" aria-label="メインメニュー" closedby="any">
-  <button id="js-closeMenu" type="button" autofocus>
-    <span>メニューをとじる</span>
+  <button id="js-closeMenu" class="c-button" type="button" autofocus>
+    <span class="c-icon" aria-hidden="true" data-icon="cancel"></span>
+    <span class="c-icon__label"><span class="u-visually-hidden">メニューを</span>とじる</span>
   </button>
   <div>
     {{ partial "menu.html" (dict "menuID" "main" "page" . "layout" "vertical") }}

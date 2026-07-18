@@ -1,0 +1,48 @@
+.c-icon {
+  block-size: 2px;
+  inline-size: 1.5rem;
+  inset: 0;
+  margin: auto;
+  position: absolute;
+
+  &::before,
+  &::after {
+    background-color: currentColor;
+    block-size: 100%;
+    content: "";
+    inline-size: 100%;
+    position: absolute;
+  }
+}
+
+.c-icon[data-icon="hamburger"] {
+  background-color: currentColor;
+
+  &::before {
+    inset-block-start: -0.5rem;
+  }
+
+  &::after {
+    inset-block-start: 0.5rem;
+  }
+}
+
+.c-icon[data-icon="cancel"] {
+  &::before {
+    transform: rotate(45deg);
+  }
+
+  &::after {
+    transform: rotate(-45deg);
+  }
+}
+
+.c-icon:has(+.c-icon__label) {
+  inset-block-start: -1rem;
+}
+
+.c-icon__label {
+  align-self: end;
+  font-size: 0.875rem;
+  white-space: nowrap;
+}
