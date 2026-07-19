@@ -20,6 +20,7 @@
 @import url("project/breadcrumb.css") layer(project);
 @import url("project/drawer.css") layer(project);
 @import url("project/logo.css") layer(project);
+@import url("project/page.css") layer(project);
 @import url("project/skip-link.css") layer(project);
 
 @import url("animation/easing.css") layer(animation);
