@@ -5,7 +5,7 @@
   try {
     let theme = sessionStorage.getItem("theme");
 
-    if (theme !== "light" | theme !== "dark") {
+    if (theme !== "light" && theme !== "dark") {
       theme = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
       sessionStorage.setItem("theme", theme);
     }
