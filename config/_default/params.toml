@@ -16,6 +16,24 @@ keywords = []
   showBreadcrumb = true
   showCurrentPage = true
 
+[sidebar]
+  enabled = true
+
+  [[sidebar.widgets]]
+    type = "featured"
+    title = "おすすめの投稿"
+    limit = 5
+
+  [[sidebar.widgets]]
+    type = "recent"
+    title = "最近の投稿"
+    section = "posts"
+    limit = 5
+
+  [[sidebar.widgets]]
+    type = "categories"
+    title = "カテゴリー"
+
 [social]
   twitter = ""
   facebook_app_id = ""

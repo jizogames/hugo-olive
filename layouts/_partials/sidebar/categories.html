@@ -1,0 +1,18 @@
+{{- $page := .page -}}
+{{- $config := .config -}}
+{{- $id := "sidebar-categories" -}}
+
+{{- with $page.Site.Taxonomies.categories -}}
+  <section class="c-sidebar-widget" aria-labelledby="{{ $id }}">
+    <h2 id="{{ $id }}" class="c-sidebar-widget__title">{{ default "カテゴリー" $config.title }}</h2>
+
+    <ul class="c-sidebar-widget__list">
+      {{ range .ByCount }}
+        <li class="c-sidebar-widget__item">
+          <a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a>
+          <span aria-label="{{ .Count }}件">{{ .Count }}</span>
+        </li>
+      {{ end }}
+    </ul>
+  </section>
+{{- end -}}

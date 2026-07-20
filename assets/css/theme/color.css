@@ -1,6 +1,7 @@
 :root {
   /* Theme */
   --theme-bg: var(--olive);
+  --theme-bg-light: light-dark(var(--olive-50), var(--olive-950));
   --theme-fg: var(--gray-950);
 
   /* Background */
@@ -18,8 +19,8 @@
   --color-error: light-dark(var(--red-700), var(--red-500));
 
   /* Link */
-  --color-link: light-dark(var(--blue-600), var(--blue-400)));
-  --color-link-hover: light-dark(var(--blue-500), var(--blue-500)));
+  --color-link: light-dark(var(--blue-600), var(--blue-400));
+  --color-link-hover: light-dark(var(--blue-500), var(--blue-500));
   --color-link-active: light-dark(var(--blue-400), var(--blue-600));
   --color-link-visited: light-dark(var(--purple-700), var(--purple-400));
   --color-link-visited-hover: light-dark(var(--purple-800), var(--purple-300));

@@ -1,0 +1,21 @@
+{{- $page := .page -}}
+
+{{- range .widgets -}}
+  {{- $widget := . -}}
+  {{- $type := default "" $widget.type -}}
+  {{- $partialPath := printf "sidebar/%s.html" $type -}}
+
+  {{- if eq $type "custom" -}}
+    {{- with $widget.name -}}
+      {{- $partialPath = printf "sidebar/custom/%s.html" . -}}
+    {{- end -}}
+  {{- end -}}
+
+  {{- $templatePath := printf "_partials/%s" $partialPath -}}
+
+  {{- if templates.Exists $templatePath -}}
+    {{- partial $partialPath (dict "page" $page "config" $widget) -}}
+  {{- else -}}
+    {{ warnf "sidebar widget template not found: %s" $partialPath }}
+  {{- end -}}
+{{- end -}}

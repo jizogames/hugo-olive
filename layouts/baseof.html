@@ -22,7 +22,20 @@
       <main id="main" class="l-main" role="main">
         {{ block "main" . }}{{ end }}
       </main>
-      {{ block "aside" . }}{{ end }}
+
+      {{ $sidebar := site.Params.sidebar }}
+      {{ if $sidebar.enabled }}
+        <aside class="l-sidebar" aria-label="サイドバー">
+          {{- block "aside" . -}}
+            {{- $page := . -}}
+            {{- $widgets := default (slice) site.Params.sidebar.widgets -}}
+
+            {{- with $widgets -}}
+              {{- partial "sidebar.html" (dict "page" $page "widgets" .) -}}
+            {{- end -}}
+          {{- end -}}
+        </aside>
+      {{ end }}
     </div>
     {{ block "afterMain" . }}{{ end }}
   </div>
