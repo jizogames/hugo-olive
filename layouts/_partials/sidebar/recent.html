@@ -1,0 +1,22 @@
+{{- $page := .page -}}
+{{- $config := .config -}}
+{{- $section := default "posts" $config.section -}}
+{{- $limit := default 5 $config.limit -}}
+{{- $id := "sidebar-recent" -}}
+
+{{- $pages := where $page.Site.RegularPages "Section" $section -}}
+
+{{- with $pages -}}
+  <section aria-labelledby="{{ $id }}">
+    <h2 id="{{ $id }}">{{ default "最近の投稿" $config.title }}</h2>
+
+    <ul>
+      {{ range first $limit .ByDate.Reverse }}
+        <li>
+          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
+        </li>
+      {{ end }}
+    </ul>
+  </section>
+{{- end -}}
