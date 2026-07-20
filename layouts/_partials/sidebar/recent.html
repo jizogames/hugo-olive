@@ -7,14 +7,42 @@
 {{- $pages := where $page.Site.RegularPages "Section" $section -}}
 
 {{- with $pages -}}
-  <section aria-labelledby="{{ $id }}">
-    <h2 id="{{ $id }}">{{ default "最近の投稿" $config.title }}</h2>
+  <section class="c-sidebar-widget" aria-labelledby="{{ $id }}">
+    <h2 id="{{ $id }}" class="c-sidebar-widget__title">{{ default "最近の投稿" $config.title }}</h2>
 
-    <ul>
+    <ul class="c-sidebar-widget__list">
       {{ range first $limit .ByDate.Reverse }}
-        <li>
-          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
-          <time datetime="{{ .Date.Format "2006-01-02" }}">{{ .Date.Format "2006年1月2日" }}</time>
+        {{- $article := . -}}
+        {{- $image := false -}}
+
+        {{- with $article.Params.thumbnail -}}
+          {{- with $article.Resources.Get . -}}
+            {{- $image = . -}}
+          {{- end -}}
+        {{- end -}}
+
+        {{- if not $image -}}
+          {{- with $article.Params.eyecatch -}}
+            {{- with $article.Resources.Get . -}}
+              {{- $image = . -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+        <li class="c-sidebar-widget__item">
+          {{- with $image -}}
+            <figure class="c-sidebar-widget__thumbnail">
+              <img
+                src="{{ .RelPermalink }}"
+                alt=""
+              >
+            </figure>
+          {{- else -}}
+            <span class="c-sidebar-widget__thumbnail" aria-hidden="true"></span>
+          {{- end -}}
+          <div>
+            <a href="{{ $article.RelPermalink }}">{{ $article.LinkTitle }}</a>
+            <time datetime="{{ $article.Date.Format "2006-01-02" }}">{{ $article.Date.Format "2006年1月2日" }}</time>
+          </div>
         </li>
       {{ end }}
     </ul>

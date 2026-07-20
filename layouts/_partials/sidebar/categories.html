@@ -3,12 +3,12 @@
 {{- $id := "sidebar-categories" -}}
 
 {{- with $page.Site.Taxonomies.categories -}}
-  <section aria-labelledby="{{ $id }}">
-    <h2 id="{{ $id }}">{{ default "カテゴリー" $config.title }}</h2>
+  <section class="c-sidebar-widget" aria-labelledby="{{ $id }}">
+    <h2 id="{{ $id }}" class="c-sidebar-widget__title">{{ default "カテゴリー" $config.title }}</h2>
 
-    <ul>
+    <ul class="c-sidebar-widget__list">
       {{ range .ByCount }}
-        <li>
+        <li class="c-sidebar-widget__item">
           <a href="{{ .Page.RelPermalink }}">{{ .Page.LinkTitle }}</a>
           <span aria-label="{{ .Count }}件">{{ .Count }}</span>
         </li>

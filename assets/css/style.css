@@ -16,6 +16,7 @@
 @import url("component/button.css") layer(component);
 @import url("component/icon.css") layer(component);
 @import url("component/menu.css") layer(component);
+@import url("component/sidebar-widget.css") layer(component);
 
 @import url("project/breadcrumb.css") layer(project);
 @import url("project/drawer.css") layer(project);

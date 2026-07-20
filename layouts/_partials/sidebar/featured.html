@@ -7,15 +7,41 @@
 {{- $pages = $pages.ByParam "featuredWeight" -}}
 
 {{- with $pages -}}
-  <section aria-labelledby="{{ $id }}">
-    <h2 id="{{ $id }}">{{ default "おすすめの投稿" $config.title }}</h2>
+  <section class="c-sidebar-widget" aria-labelledby="{{ $id }}">
+    <h2 id="{{ $id }}" class="c-sidebar-widget__title">{{ default "おすすめの投稿" $config.title }}</h2>
 
-    <ul>
-      {{ range first $limit . }}
-        <li>
-          <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+    <ol class="c-sidebar-widget__list" data-ranking>
+      {{- range first $limit . -}}
+        {{- $article := . -}}
+        {{- $image := false -}}
+
+        {{- with $article.Params.thumbnail -}}
+          {{- with $article.Resources.Get . -}}
+            {{- $image = . -}}
+          {{- end -}}
+        {{- end -}}
+
+        {{- if not $image -}}
+          {{- with $article.Params.eyecatch -}}
+            {{- with $article.Resources.Get . -}}
+              {{- $image = . -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+        <li class="c-sidebar-widget__item">
+          {{- with $image -}}
+            <figure class="c-sidebar-widget__thumbnail">
+              <img
+                src="{{ .RelPermalink }}"
+                alt=""
+              >
+            </figure>
+          {{- else -}}
+            <span class="c-sidebar-widget__thumbnail" aria-hidden="true"></span>
+          {{- end -}}
+          <a href="{{ $article.RelPermalink }}">{{ $article.LinkTitle }}</a>
         </li>
       {{ end }}
-    </ul>
+    </ol>
   </section>
 {{- end -}}
