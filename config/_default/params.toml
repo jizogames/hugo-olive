@@ -16,6 +16,9 @@ keywords = []
   showBreadcrumb = true
   showCurrentPage = true
 
+[sidebar]
+  enabled = true
+
 [social]
   twitter = ""
   facebook_app_id = ""
