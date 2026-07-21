@@ -1,4 +1,6 @@
 .l-footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-fg);
   container-name: footer;
   container-type: inline-size;
   inline-size: 100%;
@@ -7,6 +9,14 @@
 }
 
 .l-footer__container {
+  display: grid;
   margin-inline: auto;
   max-inline-size: 1024px;
+  padding-block: 1rem;
+  padding-inline: 2%;
+  row-gap: 1rem;
+
+  @media (width >= 1024px) {
+    padding-inline: 0;
+  }
 }

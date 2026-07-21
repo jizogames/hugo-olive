@@ -22,6 +22,7 @@
 @import url("component/sidebar-widget.css") layer(component);
 
 @import url("project/breadcrumb.css") layer(project);
+@import url("project/copyright.css") layer(project);
 @import url("project/drawer.css") layer(project);
 @import url("project/logo.css") layer(project);
 @import url("project/page.css") layer(project);

@@ -2,5 +2,5 @@
   {{ if site.Params.footer.showMenu | default true }}
     {{ partial "menu.html" (dict "menuID" "footer" "page" .) }}
   {{ end }}
-  <p translate="no"><small>&copy; {{ site.Title }} {{ now.Year }}</small></p>
+  <p class="p-copyright" translate="no"><small>&copy; {{ site.Title }} {{ now.Year }}</small></p>
 </div>

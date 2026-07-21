@@ -12,6 +12,10 @@
   --color-text: light-dark(var(--gray-950), var(--gray-50));
   --color-text-light: light-dark(var(--gray-600), var(--gray-400));
 
+  /* Footer */
+  --footer-bg: var(--gray-950);
+  --footer-fg: var(--gray-50);
+
   /* Shadow */
   --color-shadow: light-dark(oklch(from var(--gray-950) l c h / 10%), oklch(from var(--gray-50) l c h / 10%));
 
