@@ -4,8 +4,9 @@
 {{- end -}}
 
 {{- $showText := site.Params.header.disableTextInHeader | default false | not -}}
+{{- $centerLogo := site.Params.header.centerLogo | default false -}}
 
-<div class="l-header__container">
+<div class="l-header__container" {{- if $centerLogo }} data-center-logo{{- end -}}>
   {{- if or $logo $showText -}}
     <div class="p-logo">
       {{- with $logo -}}

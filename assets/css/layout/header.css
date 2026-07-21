@@ -1,6 +1,8 @@
 .l-header {
+  box-shadow: 0 2px 8px var(--color-shadow);
   container-name: header;
   container-type: inline-size;
+  padding-block: 0.5rem;
 }
 
 .l-header__container {
@@ -10,6 +12,25 @@
   grid-template-columns: auto minmax(max-content, 1fr);
   margin-inline: auto;
   max-inline-size: 1024px;
+  padding-inline: 2%;
+
+  @media (width >= 1024px) {
+    padding-inline: 0;
+  }
+}
+
+.l-header__container[data-center-logo] {
+  grid-template-columns: unset;
+  row-gap: 0.5rem;
+
+  & > *:first-child {
+    justify-self: center;
+  }
+
+  @media (width < 768px) {
+    justify-content: unset;
+    row-gap: 0.25rem;
+  }
 }
 
 .l-header__inner {

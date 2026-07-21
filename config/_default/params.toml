@@ -6,8 +6,9 @@ keywords = []
 
 [header]
   logo = ""
-  disableTextInHeader = false
   maxLogoSize = 80.0
+  disableTextInHeader = false
+  centerLogo = false
 
 [footer]
   showMenu = true
