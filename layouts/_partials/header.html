@@ -47,9 +47,9 @@
   {{- end -}}
 
   <div class="l-header__inner">
-    {{ partial "menu.html" (dict "menuID" "main" "page" . "class" "u-hidden-sp" "layout" "horizontal") }}
+    {{ partial "menu.html" (dict "menuID" "main" "page" . "class" "u-hidden-sm" "layout" "horizontal") }}
 
-    <button id="js-openMenu" class="c-button u-hidden-pc" type="button">
+    <button id="js-openMenu" class="c-button u-hidden-md u-hidden-lg" type="button">
       <span class="c-icon" aria-hidden="true" data-icon="hamburger"></span>
       <span class="c-icon__label">メニュー<span class="u-visually-hidden">をひらく</span></span>
     </button>

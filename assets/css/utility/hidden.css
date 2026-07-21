@@ -1,11 +1,17 @@
-.u-hidden-sp {
-  @media (width < 1024px) {
+.u-hidden-sm {
+  @container style(--screen-width: sm) {
     display: none !important;
   }
 }
 
-.u-hidden-pc {
-  @media (width >= 1024px) {
+.u-hidden-md {
+  @container style(--screen-width: md) {
+    display: none !important;
+  }
+}
+
+.u-hidden-lg {
+  @container style(--screen-width: lg) {
     display: none !important;
   }
 }

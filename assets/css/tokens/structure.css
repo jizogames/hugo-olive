@@ -1,7 +1,13 @@
 :root {
-  --viewport-min: 375;
-  --viewport-max: 1280;
-  --content-max: 900;
+  --screen-width: sm;
+
+  @media (width >= calc(768 / 16 * 1rem)) {
+    --screen-width: md;
+  }
+
+  @media (width >= calc(1024 / 16 * 1rem)) {
+    --screen-width: lg
+  }
 
   --stack-foreground: 1;
   --stack-background: -1;
