@@ -1,0 +1,11 @@
+.l-container {
+  container-type: inline-size;
+  display: grid;
+}
+
+.l-container:has(.l-sidebar) {
+  @media (width >= 1024px) {
+    column-gap: 2%;
+    grid-template-columns: 75% auto;
+  }
+}
