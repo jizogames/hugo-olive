@@ -36,5 +36,12 @@
 .l-header__inner {
   container-type: inline-size;
   display: grid;
-  justify-content: end;
+  justify-items: end;
+  row-gap: 0.5rem;
+
+  &:where([data-center-logo] > *) {
+    align-items: center;
+    grid-auto-flow: column;
+    justify-content: space-between;
+  }
 }

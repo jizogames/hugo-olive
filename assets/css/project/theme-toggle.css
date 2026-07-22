@@ -1,0 +1,8 @@
+.p-theme-toggle {
+  position: relative;
+  z-index: var(--stack-foreground);
+}
+
+.p-theme-toggle__button {
+  background-color: var(--color-canvas-bg);
+}

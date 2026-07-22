@@ -27,6 +27,7 @@
 @import url("project/logo.css") layer(project);
 @import url("project/page.css") layer(project);
 @import url("project/skip-link.css") layer(project);
+@import url("project/theme-toggle.css") layer(project);
 
 @import url("animation/easing.css") layer(animation);
 @import url("animation/fade.css") layer(animation);

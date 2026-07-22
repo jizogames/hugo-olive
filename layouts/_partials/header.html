@@ -48,6 +48,9 @@
   {{- end -}}
 
   <div class="l-header__inner">
+    <div class="p-theme-toggle" aria-live="polite">
+      <button id="js-toggleTheme" class="p-theme-toggle__button" type="button">テーマを切り替える</button>
+    </div>
     {{ partial "menu.html" (dict "menuID" "main" "page" . "class" "u-hidden-sm" "layout" "horizontal") }}
 
     <button id="js-openMenu" class="c-button u-hidden-md u-hidden-lg" type="button">
