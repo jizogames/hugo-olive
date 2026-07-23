@@ -6,6 +6,7 @@
 
   /* Background */
   --color-base-bg: light-dark(var(--gray-50), var(--gray-950));
+  --color-base-bg-light: light-dark(var(--gray-100), var(--gray-900));
   --color-canvas-bg: light-dark(var(--olive-50), var(--olive-950));
   
   /* Text */
