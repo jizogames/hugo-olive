@@ -1,10 +1,52 @@
 {{ define "main" }}
-  <h1>{{ .Title }}</h1>
-  {{ .Content }}
-  {{ range .Pages }}
-    <section>
-      <h2><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-      {{ .Summary }}
-    </section>
-  {{ end }}
+  <div class="p-page">
+    <header class="p-page__header">
+      <h1 class="p-page__title">{{ .Title }}</h1>
+    </header>
+
+    <div class="p-page__content">
+      {{ .Content }}
+
+      {{ range .Pages }}
+        {{- $article := . -}}
+        {{- $image := false -}}
+
+        {{- with $article.Params.thumbnail -}}
+          {{- with $article.Resources.Get . -}}
+            {{- $image = . -}}
+          {{- end -}}
+        {{- end -}}
+
+        {{- if not $image -}}
+          {{- with $article.Params.eyecatch -}}
+            {{- with $article.Resources.Get . -}}
+              {{- $image = . -}}
+            {{- end -}}
+          {{- end -}}
+        {{- end -}}
+
+        <article class="p-card">
+          {{- with $image -}}
+            <figure class="p-card__thumbnail">
+              <img
+                src="{{ .RelPermalink }}"
+                alt=""
+              >
+            </figure>
+          {{- else -}}
+            <span class="p-card__thumbnail" aria-hidden="true"></span>
+          {{- end -}}
+          <h2 class="p-card__title"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
+          <div class="p-card__info">
+            {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+            {{ $dateHuman := .Date | time.Format ":date_long" }}
+            <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+          </div>
+          <div class="p-card__inner">
+            {{ .Summary }}
+          </div>
+        </article>
+      {{ end }}
+    </div>
+  </div>
 {{ end }}
