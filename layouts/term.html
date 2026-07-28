@@ -7,46 +7,57 @@
     <div class="p-page__content">
       {{ .Content }}
 
-      {{ range .Pages }}
-        {{- $article := . -}}
-        {{- $image := false -}}
+      <div class="p-card__wrapper">
+        {{- $number := 0 -}}
 
-        {{- with $article.Params.thumbnail -}}
-          {{- with $article.Resources.Get . -}}
-            {{ $image = . }}
-          {{- end -}}
-        {{- end -}}
+        {{ range .Pages }}
+          {{- $article := . -}}
+          {{- $image := false -}}
+          {{- $number = add $number 1 -}}
 
-        {{- if not $image -}}
-          {{- with $article.Params.eyecatch -}}
+          {{- with $article.Params.thumbnail -}}
             {{- with $article.Resources.Get . -}}
               {{- $image = . -}}
             {{- end -}}
           {{- end -}}
-        {{- end -}}
-        
-        <article class="p-card">
-          {{- with $image -}}
-            <figure class="p-card__thumbnail">
-              <img
-                src="{{ .RelPermalink }}"
-                alt=""
-              >
-            </figure>
-          {{- else -}}
-            <span class="p-card__thumbnail" aria-hidden="true"></span>
+
+          {{- if not $image -}}
+            {{- with $article.Params.eyecatch -}}
+              {{- with $article.Resources.Get . -}}
+                {{- $image = . -}}
+              {{- end -}}
+            {{- end -}}
           {{- end -}}
-          <h2 class="p-card__title"><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h2>
-          <div class="p-card__info">
-            {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
-            {{ $dateHuman := .Date | time.Format ":date_long" }}
-            <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
-          </div>
-          <div class="p-card__inner">
-            {{ .Summary }}
-          </div>
-        </article>
-      {{ end }}
+
+          <article class="p-card" aria-labelledby="card{{ $number }}">
+            <h2 id="card{{ $number }}" class="p-card__title">
+              <a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a>
+            </h2>
+
+            {{- with $image -}}
+              <figure class="p-card__thumbnail">
+                <img
+                  src="{{ .RelPermalink }}"
+                  alt=""
+                >
+              </figure>
+            {{- else -}}
+              <span class="p-card__thumbnail" aria-hidden="true"></span>
+            {{- end -}}
+
+            <div class="p-card__inner">
+              {{ .Summary }}
+            </div>
+
+            <p class="p-card__publish">
+              {{ $dateMachine := .Date | time.Format "2006-01-02T15:04:05-07:00" }}
+              {{ $dateHuman := .Date | time.Format ":date_long" }}
+              <span class="u-visually-hidden">投稿日：</span>
+              <time datetime="{{ $dateMachine }}">{{ $dateHuman }}</time>
+            </p>
+          </article>
+        {{ end }}
+      </div>
     </div>
   </div>
 {{ end }}

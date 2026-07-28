@@ -1,0 +1,85 @@
+.p-card__wrapper {
+  --card-gap: 1rem;
+  --card-min-width: 300px;
+
+  container-type: inline-size;
+  display: grid;
+  gap: var(--card-gap);
+  grid-template-columns: repeat(auto-fit, minmax(min(var(--card-min-width), 100%), 1fr));
+}
+
+.p-card {
+  --card-layout: horizontal;
+
+  border: 1px solid var(--color-text-light);
+  display: grid;
+  grid-template-areas:
+    "image title"
+    "image content"
+    "image time";
+  grid-template-columns: 30% auto;
+  grid-template-rows: subgrid;
+  grid-row: span 3;
+
+  @container (width >= 616px) {
+    --card-layout: vertical;
+
+    grid-template-areas:
+      "image"
+      "title"
+      "content"
+      "time";
+    grid-template-columns: revert;
+    grid-row: span 4;
+  }
+}
+
+.p-card__title {
+  grid-area: title;
+
+  a {
+    color: inherit;
+    display: block;
+    padding-block: 0.5em;
+    padding-inline: 1rem;
+    text-decoration: none;
+  }
+
+  @container style(--card-layout: vertical) {
+    a {
+      padding-block: 0;
+    }
+  }
+}
+
+.p-card__thumbnail {
+  align-self: center;
+  aspect-ratio: 1;
+  background-color: var(--theme-bg);
+  display: block;
+  grid-area: image;
+  inline-size: 100%;
+
+  @container style(--card-layout: vertical) {
+    aspect-ratio: 16 / 9;
+  }
+}
+
+.p-card__thumbnail img {
+  block-size: 100%;
+  display: block;
+  inline-size: 100%;
+  object-fit: cover;
+}
+
+.p-card__inner {
+  grid-area: content;
+  padding-inline: 1rem;
+}
+
+.p-card__publish {
+  color: var(--color-text-light);
+  grid-area: time;
+  justify-self: end;
+  padding-inline: 4%;
+}
