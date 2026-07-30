@@ -20,6 +20,9 @@
   grid-template-columns: 30% auto;
   grid-template-rows: subgrid;
   grid-row: span 3;
+  position: relative;
+  transition-duration: 0.3s;
+  transition-property: background-color;
 
   @container (width >= 616px) {
     --card-layout: vertical;
@@ -32,6 +35,10 @@
     grid-template-columns: revert;
     grid-row: span 4;
   }
+
+  &:focus-within {
+    background-color: var(--color-canvas-bg);
+  }
 }
 
 .p-card__title {
@@ -43,6 +50,12 @@
     padding-block: 0.5em;
     padding-inline: 1rem;
     text-decoration: none;
+
+    &::after {
+      content: "";
+      inset: 0;
+      position: absolute;
+    }
   }
 
   @container style(--card-layout: vertical) {
@@ -52,6 +65,10 @@
   }
 }
 
+.p-card__title:has(a:focus) + .p-card__thumbnail img {
+  scale: 1.1;
+}
+
 .p-card__thumbnail {
   align-self: center;
   aspect-ratio: 1;
@@ -59,6 +76,7 @@
   display: block;
   grid-area: image;
   inline-size: 100%;
+  overflow: hidden;
 
   @container style(--card-layout: vertical) {
     aspect-ratio: 16 / 9;
@@ -70,6 +88,8 @@
   display: block;
   inline-size: 100%;
   object-fit: cover;
+  transition-duration: 0.3s;
+  transition-property: scale;
 }
 
 .p-card__inner {
