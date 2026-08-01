@@ -1,0 +1,17 @@
+<ul class="p-social-links">
+  {{- with site.Params.social.twitter -}}
+    <li href="https://x.com/{{ . }}" target="_blank">
+      <span class="visually-hidden">X</span>
+    </li>
+  {{- end -}}
+  {{- with site.Params.social.instagram -}}
+    <li href="https://www.instagram.com/{{ . }}" target="_blank">
+      <span class="visually-hidden">Instagram</span>
+    </li>
+  {{- end -}}
+  {{- with site.Params.social.github -}}
+    <li href="https://github.com/{{ . }}" target="_blank">
+      <span class="visually-hidden">GitHub</span>
+    </li>
+  {{- end -}}
+</ul>

@@ -1,4 +1,5 @@
 <div class="l-footer__container">
+  {{ partial "social.html" . }}
   {{ if site.Params.footer.showMenu | default true }}
     {{ partial "menu.html" (dict "menuID" "footer" "page" .) }}
   {{ end }}
