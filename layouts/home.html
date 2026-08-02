@@ -1,3 +1,22 @@
+{{ define "beforeMain" }}
+  {{- $hero := site.Params.hero | default dict -}}
+  {{- $heroBackground := "" -}}
+  {{- with $hero.background -}}
+    {{- $heroBackground = resources.Get . -}}
+  {{- end -}}
+
+  {{- if $hero.enabled -}}
+    <section class="p-hero" aria-labelledby="hero-title"{{ with $heroBackground }} style="background-image: {{ printf "url(%q)" .RelPermalink | safe.CSS }};"{{- end -}}>
+      <hgroup class="p-hero__title">
+        <h1 id="hero-title" class="u-visually-hidden" translate="no">{{ site.Title }}</h1>
+        {{- with $hero.catchphrase -}}
+          <p>{{ . }}</p>
+        {{- end -}}
+      </hgroup>
+    </section>
+  {{- end -}}
+{{ end }}
+
 {{ define "main" }}
   {{ .Content }}
   {{ range site.RegularPages }}

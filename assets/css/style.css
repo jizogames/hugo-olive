@@ -25,6 +25,7 @@
 @import url("project/card.css") layer(project);
 @import url("project/copyright.css") layer(project);
 @import url("project/drawer.css") layer(project);
+@import url("project/hero.css") layer(project);
 @import url("project/logo.css") layer(project);
 @import url("project/page.css") layer(project);
 @import url("project/skip-link.css") layer(project);

@@ -1,0 +1,12 @@
+.p-hero {
+  block-size: calc(100svb - var(--header-height));
+  display: grid;
+  place-content: center;
+}
+
+.p-hero__title {
+  animation-duration: 1.2s;
+  animation-fill-mode: forwards;
+  animation-name: fade-in, slide-in-from-bottom;
+  animation-timing-function: ease-in-out;
+}

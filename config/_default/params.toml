@@ -13,6 +13,11 @@ keywords = []
 [footer]
   showMenu = true
 
+[hero]
+  enabled = true
+  background = ""
+  catchphrase = ""
+
 [breadcrumb]
   showBreadcrumb = true
   showCurrentPage = true
