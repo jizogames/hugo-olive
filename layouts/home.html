@@ -18,6 +18,19 @@
 {{ end }}
 
 {{ define "main" }}
+  {{- with site.GetPage "/news" -}}
+    <section aria-labelledby="news-title">
+      <h2 id="news-title">お知らせ</h2>
+
+      {{- range first 3 (where site.RegularPages "Section" "news") -}}
+        <article>
+          <h3><a href="{{ .RelPermalink }}">{{ .LinkTitle }}</a></h3>
+          {{ .Summary }}
+        </article>
+      {{- end -}}
+    </section>
+  {{- end -}}
+
   {{ .Content }}
   {{ range site.RegularPages }}
     <section>
